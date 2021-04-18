@@ -1,4 +1,6 @@
 # 日向坂46成員Blog備份程式
+## 用途
+備份日向坂46成員Blog文章以及圖片
 ## 環境設定
  * 安裝 beautifulSoup: 透過以下指令安裝 `pip install BeautifulSoup4`
  * 安裝 requests: 透過以下指令安裝 `pip install requests`

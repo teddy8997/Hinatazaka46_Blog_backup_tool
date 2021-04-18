@@ -2,4 +2,4 @@
 ## 環境設定
  * 安裝 beautifulSoup
  可以透過以下指令安裝
- `pip install BeautifulSoup4*`
+ `pip install BeautifulSoup4`

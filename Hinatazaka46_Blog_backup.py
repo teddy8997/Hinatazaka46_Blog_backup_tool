@@ -28,9 +28,13 @@ def downloadImg(article, name, saveDir):
         s = "<" + "img src=" + '"' + str(i) + '.jpg"' +">"
         img_list[i].replace_with(s)
         if src != '':
-            tmp = requests.get(src)
-            with open(saveDir + str(i) + '.jpg', 'wb') as f:
-                f.write(tmp.content)
+            try:
+                tmp = requests.get(src)
+                with open(saveDir + str(i) + '.jpg', 'wb') as f:
+                    f.write(tmp.content)
+            except requests.exceptions.InvalidSchema:
+                continue
+                
     return "OK"
 
 def getNextURL(req_bs):
@@ -55,7 +59,7 @@ def saveHtml(article, saveDir, blogTime):
 
 member = {"潮紗理菜": 2, "影山優佳": 4, "加藤史帆": 5, "齊藤京子": 6, "佐々木久美": 7, "佐々木美玲": 8, "高瀬愛奈": 9, "高本彩花": 10
           , "東村芽依": 11, "金村美玖": 12, "河田陽菜": 13, "小坂菜緒": 14, "富田鈴花": 15, "丹生明里": 16, "濱岸ひより": 17, "松田好花": 18
-          , "宮田愛萌": 19, "渡邉美穂": 20, "上村ひなの": 21, "髙橋未来虹": 22, "森本茉莉": 23, "山口陽世": 24}
+          , "宮田愛萌": 19, "渡邉美穂": 20, "上村ひなの": 21, "髙橋未来虹": 22, "森本茉莉": 23, "山口陽世": 24,"ポカ": "000","四期生リレー":2000}
 
 name = input('請輸入要下載的成員(一次輸入一個成員)：')
 url = "https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=" + str(member[name]);
